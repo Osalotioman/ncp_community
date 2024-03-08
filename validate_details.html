@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validate Details</title>
+  <style>
+    #whatsapp-link {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="codeforces-handle">Codeforces Handle:</label>
+  <input type="text" id="codeforces-handle" placeholder="Enter Codeforces Handle">
+  <button onclick="checkUserLocation()">Submit</button>
+
+  <p id="confirmation-message"></p>
+
+  <a id="whatsapp-link" href="YOUR_WHATSAPP_LINK" target="_blank">WhatsApp Link</a>
+
+  <script>
+    const handleApiResponse = (response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      return response.json();
+    };
+
+    const checkUserLocation = () => {
+      const handleInput = document.getElementById('codeforces-handle');
+      const confirmationMessage = document.getElementById('confirmation-message');
+      const whatsappLink = document.getElementById('whatsapp-link');
+
+      const username = handleInput.value.trim();
+      if (!username) {
+        confirmationMessage.textContent = 'Please enter a Codeforces handle.';
+        return;
+      }
+
+      const apiUrl = `https://codeforces.com/api/user.info?handles=${username}`;
+
+      fetch(apiUrl)
+        .then(handleApiResponse)
+        .then((data) => {
+          const userLocation = data.result[0]?.country;
+
+          if (userLocation === 'Nigeria') {
+            confirmationMessage.textContent = 'User is located in Nigeria. WhatsApp link is now visible.';
+            whatsappLink.style.display = 'inline';
+          } else {
+            confirmationMessage.textContent = 'User is not located in Nigeria.';
+            whatsappLink.style.display = 'none';
+          }
+        })
+        .catch((error) => {
+          confirmationMessage.textContent = `Error fetching user information: ${error.message}`;
+          whatsappLink.style.display = 'none';
+        });
+    };
+  </script>
+
+</body>
+</html>
