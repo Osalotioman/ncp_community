@@ -1,5 +1,6 @@
 ## What's new?
 [Updating Upsolves](https://docs.google.com/spreadsheets/d/1EMK2fXn6rR_q4wJV4fU-CR55GBwVqwWYESp7DDpYD4U/edit?usp=sharing)
+[Get Unsolved and Solved Problems of Codeforces User](https://github.com/OsazuwaEmmanuel/ncp_community/blob/main/get_unsolved_and_solved_problems.html)
 # Joining the Nigerian Competitive Programming Community
 A repository to automate users joining the Nigerian competitive programming community.
 ## The steps below outline the procedures to join the community.
