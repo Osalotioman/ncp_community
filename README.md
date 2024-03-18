@@ -1,3 +1,5 @@
+## What's new?
+[Updating Upsolves](https://docs.google.com/spreadsheets/d/1EMK2fXn6rR_q4wJV4fU-CR55GBwVqwWYESp7DDpYD4U/edit?usp=sharing)
 # Joining the Nigerian Competitive Programming Community
 A repository to automate users joining the Nigerian competitive programming community.
 ## The steps below outline the procedures to join the community.
