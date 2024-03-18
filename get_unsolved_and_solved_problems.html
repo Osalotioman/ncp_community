@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeforces Solved and Unsolved Problems</title>
+</head>
+<body>
+
+<label for="handleInput">Enter Codeforces Handle:</label>
+<input type="text" id="handleInput">
+<button onclick="submitHandle()">Submit</button>
+
+
+<div id="unsolvedProblemsList"></div>
+<div id="solvedProblemsList"></div>
+
+<script>
+    async function submitHandle() {
+        const handle = document.getElementById("handleInput").value;
+        if (handle.trim() !== "") {
+            clearProblemsList();
+            await getUserProblems(handle);
+        } else {
+            alert("Please enter a valid Codeforces handle.");
+        }
+    }
+
+    async function getUserProblems(handle) {
+        const userStatus = await getUserStatus(handle);
+        const solvedProblems = filterSolvedProblems(userStatus);
+        const unsolvedProblems = filterUnsolvedProblems(userStatus, solvedProblems);
+
+        displayProblemsList('solvedProblemsList', solvedProblems, 'Solved Problems');
+        displayProblemsList('unsolvedProblemsList', unsolvedProblems, 'Unsolved Problems');
+    }
+
+    async function getUserStatus(handle) {
+        const response = await fetch(`https://codeforces.com/api/user.status?handle=${handle}&from=1&count=10000`);
+        const data = await response.json();
+
+        if (data.status === 'OK') {
+            return data.result;
+        } else {
+            console.error('Error fetching data from Codeforces:', data.comment);
+            return [];
+        }
+    }
+
+    function filterSolvedProblems(userStatus) {
+        const uniqueSolvedProblems = new Map();
+
+        userStatus.filter(problem => problem.verdict === 'OK').forEach(solvedProblem => {
+            const problemKey = `${solvedProblem.problem.contestId}-${solvedProblem.problem.index}`;
+            if (!uniqueSolvedProblems.has(problemKey)) {
+                uniqueSolvedProblems.set(problemKey, solvedProblem);
+            }
+        });
+
+        return Array.from(uniqueSolvedProblems.values());
+    }
+
+    function filterUnsolvedProblems(userStatus, solvedProblems) {
+        const uniqueUnsolvedProblems = new Map();
+
+        userStatus.forEach(problem => {
+            if (problem.verdict !== 'OK') {
+                const problemKey = `${problem.problem.contestId}-${problem.problem.index}`;
+                if (!solvedProblems.some(solvedProblem => `${solvedProblem.problem.contestId}-${solvedProblem.problem.index}` === problemKey)) {
+                    uniqueUnsolvedProblems.set(problemKey, problem);
+                }
+            }
+        });
+
+        return Array.from(uniqueUnsolvedProblems.values());
+    }
+
+    function displayProblemsList(containerId, problems, title) {
+        const listContainer = document.getElementById(containerId);
+        const list = document.createElement('ol');
+
+        problems.forEach(problem => {
+            const listItem = document.createElement('li');
+            const problemLink = document.createElement('a');
+            problemLink.href = `https://codeforces.com/problemset/problem/${problem.problem.contestId}/${problem.problem.index}`;
+            problemLink.textContent = `${problem.problem.name} (${problem.problem.contestId}${problem.problem.index})`;
+            listItem.appendChild(problemLink);
+            list.appendChild(listItem);
+        });
+
+        const titleElement = document.createElement('h2');
+        titleElement.textContent = title;
+
+        listContainer.appendChild(titleElement);
+        listContainer.appendChild(list);
+    }
+
+    function clearProblemsList() {
+        document.getElementById('solvedProblemsList').innerHTML = '';
+        document.getElementById('unsolvedProblemsList').innerHTML = '';
+    }
+</script>
+
+</body>
+</html>
