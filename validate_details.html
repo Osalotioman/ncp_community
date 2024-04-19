@@ -18,31 +18,32 @@
   <button onclick="checkUserLocation()">Submit</button>
 
   <p id="confirmation-message"></p>
-
+  <!--
+    Hey there 👋 Hacker, I know right, the link is just right here.
+    Why do I have to go through all these steps when I can just copy the link?
+    This link was left here, intentionally, like this due to two major reasons.
+    If you want to know what they are start a discussion at https://github.com/OsazuwaEmmanuel/ncp_community/discussions
+    Or raise an issue, any works.
+    Happy Hacking 🎉
+  -->
   <a id="whatsapp-link" href="https://chat.whatsapp.com/Dmuir2XzvuhKBrhnuqD1nW" target="_blank">WhatsApp Link</a>
-
   <script>
     const handleApiResponse = (response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
       return response.json();
     };
-
     const checkUserLocation = () => {
       const handleInput = document.getElementById('codeforces-handle');
       const confirmationMessage = document.getElementById('confirmation-message');
       const whatsappLink = document.getElementById('whatsapp-link');
-
       const username = handleInput.value.trim();
       if (!username) {
         confirmationMessage.textContent = 'Please enter a Codeforces handle.';
         return;
       }
-
       const apiUrl = `https://codeforces.com/api/user.info?handles=${username}`;
-
       fetch(apiUrl)
         .then(handleApiResponse)
         .then((data) => {
@@ -62,6 +63,5 @@
         });
     };
   </script>
-
 </body>
 </html>
