@@ -10,6 +10,7 @@
     <table border="1">
       <thead>
         <tr>
+          <th>S/N</th>
           <th>User</th>
           <th>Codeforces Rating</th>
           <th>Pupil Gap</th>
@@ -32,11 +33,13 @@
       async function populateTable() {
         const tableBody = document.getElementById('ratingTableBody');
         const sortedUsers = users.sort((a, b) => b.rating - a.rating);
+        let uid = 1;
         sortedUsers.forEach(user => {
           const adjustedRating = 1200 - user.rating; // Calculate adjusted rating
           const profileLink = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
-          const row = `<tr><td>${user.name}</td><td>${user.rating}</td><td>${adjustedRating}</td><td><a href="${profileLink}" target="_blank">Profile</a></td></tr>`;
+          const row = `<tr><td>${uid}</td><td>${user.name}</td><td>${user.rating}</td><td>${adjustedRating}</td><td><a href="${profileLink}" target="_blank">Profile</a></td></tr>`;
           tableBody.insertAdjacentHTML('beforeend', row);
+          ++uid;
         });
       }
       window.onload = populateTable;
