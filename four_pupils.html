@@ -11,6 +11,8 @@
     <tr>
       <th>User</th>
       <th>Codeforces Rating</th>
+      <th>Adjusted Rating</th>
+      <th>Codeforces Profile</th>
     </tr>
   </thead>
   <tbody id="ratingTableBody">
@@ -48,14 +50,15 @@
   const users = [
     { name: 'Emmanuel', handle: 'OsazuwaEmmanuel' },
     { name: 'Genesis', handle: 'daveshub' },
-    { name: 'Minerva', handle: 'Minerva2005' },
-    { name: 'Turing_apple', handle: 'Turing_apple'},
+    { name: 'Minerva', handle: 'Minerva2005' }
+    // Add more users as needed
+  ];
+/*
+{ name: 'Turing_apple', handle: 'Turing_apple'},
     { name: 'python_tamer', handle: 'python_tamer'},
     { name: 'cyberdude', handle: 'cyberdude'},
     { name: 'cryptickid91', handle: 'cryptickid91'}
-    // Add more users as needed
-  ];
-
+*/
   // Populate the table with ratings
   async function populateTable() {
     const tableBody = document.getElementById('ratingTableBody');
@@ -73,13 +76,15 @@
         // Populate the table with sorted users
         sortedUsers.forEach(user => {
           const rating = ratings.find(rating => rating.name === user.handle).rating;
-          const row = `<tr><td>${user.name}</td><td>${rating}</td></tr>`;
+          const adjustedRating = 1200 - rating; // Calculate adjusted rating
+          const profileLink = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
+          const row = `<tr><td>${user.name}</td><td>${rating}</td><td>${adjustedRating}</td><td><a href="${profileLink}" target="_blank">Profile</a></td></tr>`;
           tableBody.insertAdjacentHTML('beforeend', row);
         });
       })
       .catch(error => {
         console.error('Error fetching ratings:', error);
-        const row = `<tr><td colspan="2">Error fetching ratings</td></tr>`;
+        const row = `<tr><td colspan="4">Error fetching ratings</td></tr>`;
         tableBody.insertAdjacentHTML('beforeend', row);
       });
   }
