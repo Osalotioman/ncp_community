@@ -83,9 +83,10 @@
         const tableBody_pts = document.getElementById('pts');
         const sortedUsers_pts = pts.sort((a, b) => b.rating - a.rating);
         uid = 1;
+        alert(2);
         sortedUsers_pts.forEach(pts => {
-          const adjustedRating_pts = 1200 - pts.rating; // Calculate adjusted rating
-          const profileLink_pts = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
+          const adjustedRating_pts = 1400 - pts.rating; // Calculate adjusted rating
+          const profileLink_pts = `https://codeforces.com/profile/${pts.handle}`; // Codeforces profile link
           const row_pts = `<tr><td>${uid}</td><td>${pts.name}</td><td>${pts.rating}</td><td>${adjustedRating_pts}</td><td><a href="${profileLink_pts}" target="_blank">Profile</a></td></tr>`;
           tableBody_pts.insertAdjacentHTML('beforeend', row_pts);
           ++uid;
