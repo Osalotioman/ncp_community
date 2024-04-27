@@ -1,56 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Four Pupils</title>
-</head>
-<body>
-<table border="1">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Codeforces Rating</th>
-      <th>Adjusted Rating</th>
-      <th>Codeforces Profile</th>
-    </tr>
-  </thead>
-  <tbody id="ratingTableBody">
-    <!-- Table rows will be dynamically added here -->
-  </tbody>
-</table>
-
-<script>
-  // Users and their Codeforces handles
-  const users = [
-    { name: 'Emmanuel', handle: 'OsazuwaEmmanuel', rating: 1600 },
-    { name: 'Genesis', handle: 'daveshub', rating: 1800 },
-    { name: 'Minerva', handle: 'Minerva2005', rating: 1400 },
-    { name: 'Turing_apple', handle: 'Turing_apple', rating: 2000 },
-    { name: 'python_tamer', handle: 'python_tamer', rating: 1500 },
-    { name: 'cyberdude', handle: 'cyberdude', rating: 1700 },
-    { name: 'cryptickid91', handle: 'cryptickid91', rating: 1900 }
-    // Add more users as needed
-  ];
-
-  // Populate the table with ratings
-  async function populateTable() {
-    const tableBody = document.getElementById('ratingTableBody');
-
-    // Sort users based on ratings in descending order
-    const sortedUsers = users.sort((a, b) => b.rating - a.rating);
-
-    // Populate the table with sorted users
-    sortedUsers.forEach(user => {
-      const adjustedRating = 1200 - user.rating; // Calculate adjusted rating
-      const profileLink = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
-      const row = `<tr><td>${user.name}</td><td>${user.rating}</td><td>${adjustedRating}</td><td><a href="${profileLink}" target="_blank">Profile</a></td></tr>`;
-      tableBody.insertAdjacentHTML('beforeend', row);
-    });
-  }
-
-  // Call the populateTable function when the page loads
-  window.onload = populateTable;
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Pupils by May</title>
+  </head>
+  <body>
+    <h3> Four Pupils by May </h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Codeforces Rating</th>
+          <th>Pupil Gap</th>
+          <th>Codeforces Profile</th>
+        </tr>
+      </thead>
+      <tbody id="ratingTableBody"></tbody>
+    </table>
+    <script>
+      const users = [
+        { name: 'Emmanuel', handle: 'OsazuwaEmmanuel', rating: 721 },
+        { name: 'Genesis', handle: 'daveshub', rating: 832 },
+        { name: 'Minerva', handle: 'Minerva2005', rating: 932 },
+        { name: 'Turing_apple', handle: 'Turing_apple', rating: 693 },
+        { name: 'python_tamer', handle: 'python_tamer', rating: 1107 },
+        { name: 'cyberdude', handle: 'cyberdude', rating: 742 },
+        { name: 'cryptickid91', handle: 'cryptickid91', rating: 566 }
+        // Hey there, you can add your data here
+      ];
+      async function populateTable() {
+        const tableBody = document.getElementById('ratingTableBody');
+        const sortedUsers = users.sort((a, b) => b.rating - a.rating);
+        sortedUsers.forEach(user => {
+          const adjustedRating = 1200 - user.rating; // Calculate adjusted rating
+          const profileLink = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
+          const row = `<tr><td>${user.name}</td><td>${user.rating}</td><td>${adjustedRating}</td><td><a href="${profileLink}" target="_blank">Profile</a></td></tr>`;
+          tableBody.insertAdjacentHTML('beforeend', row);
+        });
+      }
+      window.onload = populateTable;
+    </script>
+  </body>
 </html>
