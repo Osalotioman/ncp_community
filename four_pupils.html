@@ -33,7 +33,7 @@
           if (data.status === 'OK' && data.result.length > 0) {
             const user = data.result[0];
             const rating = user.rating || 'Unrated'; // If rating is not available, show as Unrated
-            resolve(rating);
+            resolve({ name: handle, rating: rating }); // Resolve with an object containing name and rating
           } else {
             reject(new Error('User not found or API error'));
           }
@@ -55,17 +55,29 @@
   // Populate the table with ratings
   async function populateTable() {
     const tableBody = document.getElementById('ratingTableBody');
-    for (const user of users) {
-      try {
-        const rating = await getRating(user.handle);
-        const row = `<tr><td>${user.name}</td><td>${rating}</td></tr>`;
+    const ratingPromises = users.map(user => getRating(user.handle));
+
+    Promise.all(ratingPromises)
+      .then(ratings => {
+        // Sort users based on ratings in descending order
+        const sortedUsers = users.sort((a, b) => {
+          const ratingA = ratings.find(rating => rating.name === a.handle).rating;
+          const ratingB = ratings.find(rating => rating.name === b.handle).rating;
+          return ratingB - ratingA;
+        });
+
+        // Populate the table with sorted users
+        sortedUsers.forEach(user => {
+          const rating = ratings.find(rating => rating.name === user.handle).rating;
+          const row = `<tr><td>${user.name}</td><td>${rating}</td></tr>`;
+          tableBody.insertAdjacentHTML('beforeend', row);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching ratings:', error);
+        const row = `<tr><td colspan="2">Error fetching ratings</td></tr>`;
         tableBody.insertAdjacentHTML('beforeend', row);
-      } catch (error) {
-        console.error(`Error fetching rating for ${user.name}:`, error);
-        const row = `<tr><td>${user.name}</td><td>Error fetching rating</td></tr>`;
-        tableBody.insertAdjacentHTML('beforeend', row);
-      }
-    }
+      });
   }
 
   // Call the populateTable function when the page loads
