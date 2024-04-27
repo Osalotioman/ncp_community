@@ -28,6 +28,19 @@
       </thead>
       <tbody id="ratingTableBody"></tbody>
     </table>
+    <h3> Pupil to Specialist </h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>S/N</th>
+          <th>User</th>
+          <th>Codeforces Rating</th>
+          <th>Pupil Gap</th>
+          <th>Codeforces Profile</th>
+        </tr>
+      </thead>
+      <tbody id="ptsb"></tbody>
+    </table>
     <ul>
       If:
       <li>Your name is not here. Or</li>
@@ -51,6 +64,11 @@
         { name: 'cryptickid91', handle: 'cryptickid91', rating: 566 }
         // Hey there, you can add your data here
       ];
+      const pts = [
+        {name: 'randombernie', handle: 'randombernie', rating: 1},
+        {name: '0x000022', handle: '0x000022', rating: 2},
+        {name: 'dreadedhippy', handle: 'dreadedhippy', rating:23}
+      ]
       async function populateTable() {
         const tableBody = document.getElementById('ratingTableBody');
         const sortedUsers = users.sort((a, b) => b.rating - a.rating);
@@ -60,6 +78,16 @@
           const profileLink = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
           const row = `<tr><td>${uid}</td><td>${user.name}</td><td>${user.rating}</td><td>${adjustedRating}</td><td><a href="${profileLink}" target="_blank">Profile</a></td></tr>`;
           tableBody.insertAdjacentHTML('beforeend', row);
+          ++uid;
+        });
+        const tableBody_pts = document.getElementById('pts');
+        const sortedUsers_pts = pts.sort((a, b) => b.rating - a.rating);
+        uid = 1;
+        sortedUsers_pts.forEach(pts => {
+          const adjustedRating_pts = 1200 - pts.rating; // Calculate adjusted rating
+          const profileLink_pts = `https://codeforces.com/profile/${user.handle}`; // Codeforces profile link
+          const row_pts = `<tr><td>${uid}</td><td>${pts.name}</td><td>${pts.rating}</td><td>${adjustedRating_pts}</td><td><a href="${profileLink_pts}" target="_blank">Profile</a></td></tr>`;
+          tableBody_pts.insertAdjacentHTML('beforeend', row_pts);
           ++uid;
         });
       }
