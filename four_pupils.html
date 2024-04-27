@@ -80,10 +80,9 @@
           tableBody.insertAdjacentHTML('beforeend', row);
           ++uid;
         });
-        const tableBody_pts = document.getElementById('pts');
+        const tableBody_pts = document.getElementById('ptsb');
         const sortedUsers_pts = pts.sort((a, b) => b.rating - a.rating);
         uid = 1;
-        alert(2);
         sortedUsers_pts.forEach(pts => {
           const adjustedRating_pts = 1400 - pts.rating; // Calculate adjusted rating
           const profileLink_pts = `https://codeforces.com/profile/${pts.handle}`; // Codeforces profile link
