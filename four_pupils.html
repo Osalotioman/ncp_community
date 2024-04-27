@@ -23,8 +23,8 @@
 <script>
   // Function to fetch Codeforces ratings
   function getRating(handle) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => { 
+    setTimeout(() => { 
+      return new Promise((resolve, reject) => {
         fetch(`https://codeforces.com/api/user.info?handles=${handle}`)
           .then(response => {
             if (!response.ok) {
@@ -43,23 +43,23 @@
           })
           .catch(error => {
             reject(error);
-          });
-      }, 2000);
-    });
+          });     
+      });
+    }, 3000);
   }
 
   // Users and their Codeforces handles
   const users = [
     { name: 'Emmanuel', handle: 'OsazuwaEmmanuel' },
-    { name: 'Genesis', handle: 'daveshub' }
-    // Add more users as needed
-  ];
-  /*
-  { name: 'Minerva', handle: 'Minerva2005' },
+    { name: 'Genesis', handle: 'daveshub' },
+    { name: 'Minerva', handle: 'Minerva2005' },
     { name: 'Turing_apple', handle: 'Turing_apple'},
     { name: 'python_tamer', handle: 'python_tamer'},
     { name: 'cyberdude', handle: 'cyberdude'},
     { name: 'cryptickid91', handle: 'cryptickid91'}
+    // Add more users as needed
+  ];
+  /*
   */
 
   // Populate the table with ratings
