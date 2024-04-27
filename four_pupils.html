@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Pupils</title>
+</head>
+<body>
+<table border="1">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Codeforces Rating</th>
+    </tr>
+  </thead>
+  <tbody id="ratingTableBody">
+    <!-- Table rows will be dynamically added here -->
+  </tbody>
+</table>
+
+<script>
+  // Function to fetch Codeforces ratings
+  function getRating(handle) {
+    return new Promise((resolve, reject) => {
+      fetch(`https://codeforces.com/api/user.info?handles=${handle}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.status === 'OK' && data.result.length > 0) {
+            const user = data.result[0];
+            const rating = user.rating || 'Unrated'; // If rating is not available, show as Unrated
+            resolve(rating);
+          } else {
+            reject(new Error('User not found or API error'));
+          }
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  // Users and their Codeforces handles
+  const users = [
+    { name: 'Emmanuel', handle: 'OsazuwaEmmanuel' },
+    { name: 'Genesis', handle: 'daveshub' },
+    { name: 'Minerva', handle: 'Minerva2005' }
+    // Add more users as needed
+  ];
+
+  // Populate the table with ratings
+  async function populateTable() {
+    const tableBody = document.getElementById('ratingTableBody');
+    for (const user of users) {
+      try {
+        const rating = await getRating(user.handle);
+        const row = `<tr><td>${user.name}</td><td>${rating}</td></tr>`;
+        tableBody.insertAdjacentHTML('beforeend', row);
+      } catch (error) {
+        console.error(`Error fetching rating for ${user.name}:`, error);
+        const row = `<tr><td>${user.name}</td><td>Error fetching rating</td></tr>`;
+        tableBody.insertAdjacentHTML('beforeend', row);
+      }
+    }
+  }
+
+  // Call the populateTable function when the page loads
+  window.onload = populateTable;
+</script>
+</body>
+</html>
