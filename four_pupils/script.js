@@ -4,15 +4,15 @@ const users = [
     { name: 'Minerva', handle: 'Minerva2005', rating: 932 },
     { name: 'Turing_apple', handle: 'Turing_apple', rating: 847 },
     { name: 'python_tamer', handle: 'python_tamer', rating: 1107 },
-    { name: 'cyberdude', handle: 'cyberdude', rating: 742 },
-    { name: 'cryptickid91', handle: 'cryptickid91', rating: 566 }
+    { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
+    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 566 }
     // Hey there, you can add your data here
 ];
 const pts = [
     {name: 'TechWiz', handle: '0x000022', rating: 1107},
     {name: 'Eti-ini', handle: 'randombernie', rating: 1149},
-    {name: 'dreadedhippy', handle: 'dreadedhippy', rating:1161},
-    {name: 'ehijoe', handle: 'ehijoe', rating: 1332}
+    {name: 'Dreadedhippy', handle: 'dreadedhippy', rating:1161},
+    {name: 'Ehijoe', handle: 'ehijoe', rating: 1332}
 ]
 async function populateTable() {
 const tableBody = document.getElementById('ratingTableBody');
