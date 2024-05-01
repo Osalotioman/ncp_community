@@ -3,7 +3,7 @@ const users = [
     { name: 'Genesis', handle: 'daveshub', rating: 783 },
     { name: 'Minerva', handle: 'Minerva2005', rating: 932 },
     { name: 'Turing_apple', handle: 'Turing_apple', rating: 847 },
-    { name: 'python_tamer', handle: 'python_tamer', rating: 1107 },
+    { name: 'Python_tamer', handle: 'python_tamer', rating: 1107 },
     { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
     { name: 'Cryptickid91', handle: 'cryptickid91', rating: 566 }
     // Hey there, you can add your data here
