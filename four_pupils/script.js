@@ -5,6 +5,7 @@ const users = [
     { name: 'Turing_apple', handle: 'Turing_apple', rating: 847 },
     { name: 'Python_tamer', handle: 'python_tamer', rating: 1068},
     { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
+    { name: 'Otutochi', handle: 'Otuz', rating: 621},
     { name: 'Cryptickid91', handle: 'cryptickid91', rating: 566 }
     // Hey there, you can add your data here
 ];
