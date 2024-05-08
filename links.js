@@ -4,8 +4,8 @@ h2.textContent = 'Repository Pages';
 var ul = document.createElement('ul');
 var links = [
     "https://docs.google.com/spreadsheets/d/1EMK2fXn6rR_q4wJV4fU-CR55GBwVqwWYESp7DDpYD4U/edit?usp=sharing",
-    "https://osazuwaemmanuel.github.io/ncp_community/get_unsolved_and_solved_problems.html",
-    "https://osazuwaemmanuel.github.io/ncp_community/resources.html"
+    "https://osalotioman.github.io/ncp_community/ncp_community/get_unsolved_and_solved_problems.html",
+    "https://osalotioman.github.io/ncp_community/ncp_community/resources.html"
 ]
 var link_names = [
     "Updating Upsolves",
