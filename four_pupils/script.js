@@ -13,7 +13,7 @@ const pts = [
     {name: 'TechWiz', handle: '0x000022', rating: 1107},
     {name: 'Eti-ini', handle: 'randombernie', rating: 1244},
     {name: 'Dreadedhippy', handle: 'dreadedhippy', rating:1307},
-    {name: '<b style="color:#8080FF;">Ehijoe</b>', handle: 'ehijoe', rating: 1469}
+    {name: '<b style="background-color:cyan;">Ehijoe</b>', handle: 'ehijoe', rating: 1469}
 ]
 async function populateTable() {
 const tableBody = document.getElementById('ratingTableBody');
