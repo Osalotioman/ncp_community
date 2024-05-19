@@ -1,19 +1,19 @@
 const users = [
-    { name: 'Emmanuel', handle: 'OsazuwaEmmanuel', rating: 772 },
-    { name: 'Genesis', handle: 'daveshub', rating: 872 },
-    { name: 'Minerva', handle: 'Minerva2005', rating: 932 },
-    { name: 'Turing_apple', handle: 'Turing_apple', rating: 992 },
-    { name: 'Python_tamer', handle: 'python_tamer', rating: 1134},
+    { name: 'Osalotioman', handle: 'OsazuwaEmmanuel', rating: 685 },
+    { name: 'Genesis', handle: 'daveshub', rating: 779 },
+    { name: 'Minerva', handle: 'Minerva2005', rating: 834 },
+    { name: 'Turing_apple', handle: 'Turing_apple', rating: 1029 },
+    { name: 'Python_tamer', handle: 'python_tamer', rating: 1135},
     { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
     { name: 'Otutochi', handle: 'Otuz', rating: 620},
-    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 883 }
+    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 }
     // Hey there, you can add your data here
 ];
 const pts = [
     {name: 'TechWiz', handle: '0x000022', rating: 1107},
-    {name: 'Eti-ini', handle: 'randombernie', rating: 1244},
-    {name: 'Dreadedhippy', handle: 'dreadedhippy', rating:1307},
-    {name: '<b style="color:cyan;">Ehijoe</b>', handle: 'ehijoe', rating: 1469}
+    {name: 'Eti-ini', handle: 'randombernie', rating: 1245},
+    {name: 'Dreadedhippy', handle: 'dreadedhippy', rating:1257},
+    {name: '<b style="color:#03A89E;">Ehijoe</b>', handle: 'ehijoe', rating: 1469}
 ]
 async function populateTable() {
 const tableBody = document.getElementById('ratingTableBody');
