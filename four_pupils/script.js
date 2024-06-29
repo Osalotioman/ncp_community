@@ -1,19 +1,30 @@
 const users = [
-    { name: 'Osalotioman', handle: 'OsazuwaEmmanuel', rating: 638 },
-    { name: 'Genesis', handle: 'daveshub', rating: 946 },
-    { name: 'Minerva', handle: 'Minerva2005', rating: 867 },
+    { name: 'Emmanuel', handle: 'OsazuwaEmmanuel', rating: 466, uni: 'uniben', team: '#Terminal'},
+    { name: 'Genesis', handle: 'daveshub', rating: 948, uni: 'uniben', team: '#Terminal'},
+    { name: 'Minerva', handle: 'Minerva2005', rating: 867, uni: 'uniben', team: '#Terminal'},
     { name: 'Turing_apple', handle: 'Turing_apple', rating: 867 },
     { name: 'Python_tamer', handle: 'python_tamer', rating: 1052},
     { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
     { name: 'Otutochi', handle: 'Otuz', rating: 620},
-    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 }
+    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 },
+    { name: 'Caleb', handle: 'Caleb_Osasere_Igiewe', rating: 336, uni: 'uniben'},
+    { name: 'Deborah', handle: 'Bora_codes', rating: 357, uni: 'uniben'},
+    { name: 'AyomideA-S', handle: 'AyomideA-S', rating: 605, uni: 'unilag'},
+    { name: 'Elvis', handle: 'anivelvess', rating: 0, uni: 'uniben'},
+    { name: 'Justin', handle: 'Lord_Tech', rating: 0, uni: 'uniben'},
+    { name: 'Onyebuchi', handle: 'sillycon90', rating: 0, uni: 'uniben'},
+    { name: 'John', handle: 'John_osking', rating: 0, uni: 'uniben'},
+    { name: 'Sylvia', handle: 'Cee09', rating: 0, uni: 'uniben'},
+    { name: 'Kindness', handle: 'nosakharekindness46', rating: 573, uni: "biu"},
+    { name: 'Great', handle: 'GreatKenneth', rating: 0, uni: 'uniben'},
+    { name: 'Daniel', handle: 'Kimdanzy29', rating: 0, uni: 'uniben'}
     // Hey there, you can add your data here
 ];
 const pts = [
-    {name: '<b style="color:#008000;">TechWiz</b>', handle: '0x000022', rating: 1077},
-    {name: '<b style="color:#008000;">Eti-ini</b>', handle: 'randombernie', rating: 1393},
-    {name: '<b style="color:#008000;">Dreadedhippy</b>', handle: 'dreadedhippy', rating:1359},
-    {name: '<b style="color:#03A89E;">Ehijoe</b>', handle: 'ehijoe', rating: 1374}
+    {name: '<b style="color:#008000;">TechWiz</b>', handle: '0x000022', rating: 1187},
+    {name: '<b style="color:#03A89E;">Eti-ini</b>', handle: 'randombernie', rating: 1375},
+    {name: '<b style="color:#008000;">Dreadedhippy</b>', handle: 'dreadedhippy', rating:1310},
+    {name: '<b style="color:#03A89E;">Ehijoe</b>', handle: 'ehijoe', rating: 1345}
 ]
 async function populateTable() {
 const tableBody = document.getElementById('ratingTableBody');
