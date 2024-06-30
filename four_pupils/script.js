@@ -6,18 +6,7 @@ const users = [
     { name: 'Python_tamer', handle: 'python_tamer', rating: 1052},
     { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
     { name: 'Otutochi', handle: 'Otuz', rating: 620},
-    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 },
-    { name: 'Caleb', handle: 'Caleb_Osasere_Igiewe', rating: 336, uni: 'uniben'},
-    { name: 'Deborah', handle: 'Bora_codes', rating: 357, uni: 'uniben'},
-    { name: 'AyomideA-S', handle: 'AyomideA-S', rating: 605, uni: 'unilag'},
-    { name: 'Elvis', handle: 'anivelvess', rating: 0, uni: 'uniben'},
-    { name: 'Justin', handle: 'Lord_Tech', rating: 0, uni: 'uniben'},
-    { name: 'Onyebuchi', handle: 'sillycon90', rating: 0, uni: 'uniben'},
-    { name: 'John', handle: 'John_osking', rating: 0, uni: 'uniben'},
-    { name: 'Sylvia', handle: 'Cee09', rating: 0, uni: 'uniben'},
-    { name: 'Kindness', handle: 'nosakharekindness46', rating: 573, uni: "biu"},
-    { name: 'Great', handle: 'GreatKenneth', rating: 0, uni: 'uniben'},
-    { name: 'Daniel', handle: 'Kimdanzy29', rating: 0, uni: 'uniben'}
+    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 }
     // Hey there, you can add your data here
 ];
 const pts = [
