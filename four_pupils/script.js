@@ -1,12 +1,15 @@
 const users = [
     { name: 'Emmanuel', handle: 'OsazuwaEmmanuel', rating: 466, uni: 'uniben', team: '#Terminal'},
-    { name: 'Genesis', handle: 'daveshub', rating: 948, uni: 'uniben', team: '#Terminal'},
+    { name: '<b style="color:#010101;">Genesis</b>', handle: 'daveshub', rating: 948, uni: 'uniben', team: '#Terminal'},
     { name: 'Minerva', handle: 'Minerva2005', rating: 867, uni: 'uniben', team: '#Terminal'},
-    { name: 'Turing_apple', handle: 'Turing_apple', rating: 867 },
-    { name: 'Python_tamer', handle: 'python_tamer', rating: 1052},
+    { name: 'Obinna', handle: 'Turing_apple', rating: 867 },
+    { name: 'Anthony', handle: 'python_tamer', rating: 1052},
     { name: 'Cyberdude', handle: 'cyberdude', rating: 742 },
     { name: 'Otutochi', handle: 'Otuz', rating: 620},
-    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 }
+    { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 },
+    { name: 'Ola', handle: 'Anubis11111', rating: 0 },
+    { name: 'Brainiac Prime', handle: 'iminaboroberts', rating: 0 },
+    { name: 'Paul', handle: 'eroblaze', rating: 0 }
 ];
 
 const pts = [
