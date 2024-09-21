@@ -9,7 +9,8 @@ const users = [
     { name: 'Cryptickid91', handle: 'cryptickid91', rating: 884 },
     { name: 'Ola', handle: 'Anubis11111', rating: 0 },
     { name: 'Brainiac Prime', handle: 'iminaboroberts', rating: 0 },
-    { name: 'Paul', handle: 'eroblaze', rating: 0 }
+    { name: 'Paul', handle: 'eroblaze', rating: 0 },
+    { name: 'BrainiacPrimeChi', handle: 'iminaboroberts', rating: 0}
 ];
 
 const pts = [
