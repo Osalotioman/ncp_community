@@ -1,6 +1,5 @@
 const users = [
     { name: 'Emmanuel', handle: 'OsazuwaEmmanuel', rating: 466, uni: 'uniben', team: '#Terminal'},
-    { name: '<b style="color:#010101;">Genesis</b>', handle: 'daveshub', rating: 948, uni: 'uniben', team: '#Terminal'},
     { name: 'Minerva', handle: 'Minerva2005', rating: 867, uni: 'uniben', team: '#Terminal'},
     { name: 'Obinna', handle: 'Turing_apple', rating: 867 },
     { name: 'Anthony', handle: 'python_tamer', rating: 1052},
@@ -17,7 +16,8 @@ const pts = [
     {name: '<b style="color:#008000;">TechWiz</b>', handle: '0x000022', rating: 1187},
     {name: '<b style="color:#03A89E;">Eti-ini</b>', handle: 'randombernie', rating: 1375},
     {name: '<b style="color:#008000;">Dreadedhippy</b>', handle: 'dreadedhippy', rating: 1310},
-    {name: '<b style="color:#03A89E;">Ehijoe</b>', handle: 'ehijoe', rating: 1345}
+    {name: '<b style="color:#03A89E;">Ehijoe</b>', handle: 'ehijoe', rating: 1345},
+    { name: '<b style="color:#03A89E;">Genesis</b>', handle: 'daveshub', rating: 948, uni: 'uniben', team: '#Terminal'}
 ];
 
 async function fetchRatings(handles) {
